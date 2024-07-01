@@ -568,6 +568,10 @@ require('lazy').setup({
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
+        elixirls = {
+          cmd = { vim.fn.expand '~/dev/elixir-ls/rel/language_server.sh' },
+          capabilities = capabilities,
+        },
 
         lua_ls = {
           -- cmd = {...},
