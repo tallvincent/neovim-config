@@ -176,6 +176,8 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('n', '<A-j>', ':cnext<CR>')
 vim.keymap.set('n', '<A-k>', ':cprev<CR>')
 
+vim.keymap.set('n', '<C-P>', '"0p', { desc = 'Paste from last yank' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -847,36 +849,6 @@ require('lazy').setup({
   {
     'petobens/poet-v',
   },
-  -- {
-  --   'SuperBo/fugit2.nvim',
-  --   opts = {},
-  --   dependencies = {
-  --     'MunifTanjim/nui.nvim',
-  --     'nvim-tree/nvim-web-devicons',
-  --     'nvim-lua/plenary.nvim',
-  --     {
-  --       'chrisgrieser/nvim-tinygit', -- optional: for Github PR view
-  --       dependencies = { 'stevearc/dressing.nvim' },
-  --     },
-  --   },
-  --   cmd = { 'Fugit2', 'Fugit2Graph' },
-  --   keys = {
-  --     { '<leader>F', mode = 'n', '<cmd>Fugit2<cr>' },
-  --   },
-  -- },
-  -- {
-  --   -- optional: for diffview.nvim integration
-  --   'sindrets/diffview.nvim',
-  --   dependencies = { 'nvim-tree/nvim-web-devicons' },
-  --   -- lazy, only load diffview by these commands
-  --   cmd = {
-  --     'DiffviewFileHistory',
-  --     'DiffviewOpen',
-  --     'DiffviewToggleFiles',
-  --     'DiffviewFocusFiles',
-  --     'DiffviewRefresh',
-  --   },
-  -- },
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
