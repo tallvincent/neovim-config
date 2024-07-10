@@ -157,6 +157,9 @@ vim.opt.cursorline = true
 -- Keep cursor always centred vertically
 vim.opt.scrolloff = 999
 
+-- Conceal level for obsidian.nvim
+vim.opt.conceallevel = 1
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -188,7 +191,7 @@ vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
+--  Use ALT+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
 vim.keymap.set('n', '<M-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
@@ -200,6 +203,10 @@ vim.keymap.set('n', '<M-,>', '<C-w>5<')
 vim.keymap.set('n', '<M-.>', '<C-w>5>')
 vim.keymap.set('n', '<M-t>', '<C-W>+')
 vim.keymap.set('n', '<M-s>', '<C-W>-')
+
+-- Paste buffers
+--  Paste from last yank
+vim.keymap.set('n', '<leader>p', '"0p')
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -250,24 +257,6 @@ require('lazy').setup({
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
-
-  -- Here is a more advanced example where we pass configuration
-  -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
-  --    require('gitsigns').setup({ ... })
-  --
-  -- See `:help gitsigns` to understand what the configuration keys do
-  { -- Adds git related signs to the gutter, as well as utilities for managing changes
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-    },
-  },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
@@ -568,6 +557,7 @@ require('lazy').setup({
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
+        -- NOTE: requires elixir-ls to be installed in the below path
         elixirls = {
           cmd = { vim.fn.expand '~/dev/elixir-ls/rel/language_server.sh' },
           capabilities = capabilities,
@@ -857,41 +847,40 @@ require('lazy').setup({
   {
     'petobens/poet-v',
   },
+  -- {
+  --   'SuperBo/fugit2.nvim',
+  --   opts = {},
+  --   dependencies = {
+  --     'MunifTanjim/nui.nvim',
+  --     'nvim-tree/nvim-web-devicons',
+  --     'nvim-lua/plenary.nvim',
+  --     {
+  --       'chrisgrieser/nvim-tinygit', -- optional: for Github PR view
+  --       dependencies = { 'stevearc/dressing.nvim' },
+  --     },
+  --   },
+  --   cmd = { 'Fugit2', 'Fugit2Graph' },
+  --   keys = {
+  --     { '<leader>F', mode = 'n', '<cmd>Fugit2<cr>' },
+  --   },
+  -- },
+  -- {
+  --   -- optional: for diffview.nvim integration
+  --   'sindrets/diffview.nvim',
+  --   dependencies = { 'nvim-tree/nvim-web-devicons' },
+  --   -- lazy, only load diffview by these commands
+  --   cmd = {
+  --     'DiffviewFileHistory',
+  --     'DiffviewOpen',
+  --     'DiffviewToggleFiles',
+  --     'DiffviewFocusFiles',
+  --     'DiffviewRefresh',
+  --   },
+  -- },
   {
-    'SuperBo/fugit2.nvim',
-    opts = {},
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-      'nvim-tree/nvim-web-devicons',
-      'nvim-lua/plenary.nvim',
-      {
-        'chrisgrieser/nvim-tinygit', -- optional: for Github PR view
-        dependencies = { 'stevearc/dressing.nvim' },
-      },
-    },
-    cmd = { 'Fugit2', 'Fugit2Graph' },
-    keys = {
-      { '<leader>F', mode = 'n', '<cmd>Fugit2<cr>' },
-    },
-  },
-  {
-    -- optional: for diffview.nvim integration
-    'sindrets/diffview.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    -- lazy, only load diffview by these commands
-    cmd = {
-      'DiffviewFileHistory',
-      'DiffviewOpen',
-      'DiffviewToggleFiles',
-      'DiffviewFocusFiles',
-      'DiffviewRefresh',
-    },
-  },
-  {
-    'm4xshen/autoclose.nvim',
-    config = function()
-      require('autoclose').setup {}
-    end,
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = true,
   },
   {
     'epwalsh/obsidian.nvim',
@@ -949,7 +938,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
