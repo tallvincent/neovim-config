@@ -176,8 +176,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('n', '<A-j>', ':cnext<CR>')
 vim.keymap.set('n', '<A-k>', ':cprev<CR>')
 
-vim.keymap.set('n', '<C-P>', '"0p', { desc = 'Paste from last yank' })
-
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -208,7 +206,7 @@ vim.keymap.set('n', '<M-s>', '<C-W>-')
 
 -- Paste buffers
 --  Paste from last yank
-vim.keymap.set('n', '<leader>p', '"0p')
+vim.keymap.set('n', '<C-p>', '"0p', { desc = 'Paste from last yank' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
