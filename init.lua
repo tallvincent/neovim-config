@@ -417,6 +417,7 @@ require('lazy').setup({
       --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+      capabilities.textDocument.completion.completionItem.snippetSupport = true
 
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -444,6 +445,21 @@ require('lazy').setup({
         elixirls = {
           cmd = { vim.fn.expand '~/dev/elixir-ls/rel/language_server.sh' },
           capabilities = capabilities,
+        },
+
+        html = {
+          capabilities = capabilities,
+          filetypes = { 'html', 'heex' },
+        },
+
+        tailwindcss = {
+          init_options = {
+            userLanguages = {
+              elixir = 'html-eex',
+              eelixir = 'html-eex',
+              heex = 'html-eex',
+            },
+          },
         },
 
         lua_ls = {
@@ -708,7 +724,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc', 'elixir', 'heex', 'eex' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {

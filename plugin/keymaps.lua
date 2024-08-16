@@ -45,3 +45,7 @@ vim.keymap.set('n', '<M-s>', '<C-W>-')
 -- Paste buffers
 --  Paste from last yank
 vim.keymap.set('n', '<C-p>', '"0p', { desc = 'Paste from last yank' })
+
+-- Netrw
+vim.keymap.set('n', '<leader>ft', ':Sex<CR>', { desc = '[F]ile tree [T]ab' })
+vim.keymap.set('n', '<leader>fw', ':Ex<CR>', { desc = '[F]ile tree [W]indow' })
