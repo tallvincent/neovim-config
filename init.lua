@@ -462,6 +462,15 @@ require('lazy').setup({
           },
         },
 
+        eslint = {
+          -- on_attach = function(client, bufnr)
+          --   vim.api.nvim_create_autocmd('BufWritePre', {
+          --     buffer = bufnr,
+          --     command = 'EslintFixAll',
+          --   })
+          -- end,
+        },
+
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -657,6 +666,14 @@ require('lazy').setup({
           { name = 'buffer' },
         },
       }
+
+      -- Setup up vim-dadbod
+      cmp.setup.filetype({ 'sql' }, {
+        sources = {
+          { name = 'vim-dadbod-completion' },
+          { name = 'buffer' },
+        },
+      })
     end,
   },
 

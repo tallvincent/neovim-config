@@ -11,9 +11,6 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagn
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
-vim.keymap.set('n', '<A-j>', ':cnext<CR>')
-vim.keymap.set('n', '<A-k>', ':cprev<CR>')
-
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -37,6 +34,11 @@ vim.keymap.set('n', '<M-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<M-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<M-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Tab navigation
+vim.keymap.set('n', '<M-n>', ':tabnext<CR>', { desc = 'Go to next tab' })
+vim.keymap.set('n', '<M-p>', ':tabprevious<CR>', { desc = 'Go to previous tab' })
+
+-- Window sizing
 vim.keymap.set('n', '<M-,>', '<C-w>5<')
 vim.keymap.set('n', '<M-.>', '<C-w>5>')
 vim.keymap.set('n', '<M-t>', '<C-W>+')
@@ -45,7 +47,3 @@ vim.keymap.set('n', '<M-s>', '<C-W>-')
 -- Paste buffers
 --  Paste from last yank
 vim.keymap.set('n', '<C-p>', '"0p', { desc = 'Paste from last yank' })
-
--- Netrw
-vim.keymap.set('n', '<leader>ft', ':Sex<CR>', { desc = '[F]ile tree [T]ab' })
-vim.keymap.set('n', '<leader>fw', ':Ex<CR>', { desc = '[F]ile tree [W]indow' })
