@@ -21,6 +21,9 @@ return {
         path = '~/ObsidianVault',
       },
     },
+    note_id_func = function(title)
+      return title
+    end,
     mappings = {
       -- Default mappings
       -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
