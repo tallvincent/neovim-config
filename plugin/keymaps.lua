@@ -24,25 +24,6 @@ set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
 set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
--- Keybinds to make split navigation easier.
---  Use ALT+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
-set('n', '<M-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-set('n', '<M-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-set('n', '<M-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-set('n', '<M-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
--- Tab navigation
-set('n', '<M-n>', ':tabnext<CR>', { desc = 'Go to next tab' })
-set('n', '<M-p>', ':tabprevious<CR>', { desc = 'Go to previous tab' })
-
--- Window sizing
-set('n', '<M-,>', '<C-w>5<')
-set('n', '<M-.>', '<C-w>5>')
-set('n', '<M-t>', '<C-W>+')
-set('n', '<M-s>', '<C-W>-')
-
 -- Paste buffers
 --  Paste from last yank
 set('n', '<C-p>', '"0p', { desc = 'Paste from last yank' })
