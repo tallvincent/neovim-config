@@ -155,7 +155,7 @@ return { -- LSP Configuration & Plugins
 
       html = {
         capabilities = capabilities,
-        filetypes = { 'html', 'heex' },
+        filetypes = { 'html', 'heex', 'php' },
       },
 
       tailwindcss = {
@@ -175,6 +175,10 @@ return { -- LSP Configuration & Plugins
             command = 'EslintFixAll',
           })
         end,
+      },
+
+      phpactor = {
+        -- filetypes = { 'php', 'html' },
       },
 
       lua_ls = {
