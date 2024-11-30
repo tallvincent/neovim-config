@@ -69,3 +69,6 @@ opt.scrolloff = 999
 
 -- Conceal level for obsidian.nvim
 opt.conceallevel = 1
+
+-- Check tabs when using buffer switching commands
+opt.switchbuf = 'usetab,newtab'
