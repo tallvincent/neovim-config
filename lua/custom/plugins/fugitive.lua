@@ -1,8 +1,11 @@
 return {
   'tpope/vim-fugitive',
   config = function()
-    vim.keymap.set('n', '<leader>F', ':Git<CR>', { desc = '[F]ugitivestatus' })
-    vim.keymap.set('n', '<leader>bb', ':Git blame<CR>', { desc = 'Git blame' })
-    vim.keymap.set('n', '<leader>fc', ':Git commit<CR>', { desc = '[F]ugitive [C]ommit' })
+    local set = vim.keymap.set
+    set('n', '<leader>G', ':Git<CR>', { desc = '[G]it status' })
+    -- NOTE: not really used over gitsigns blame, might use later
+    -- set('n', '<leader>gb', ':Git blame<CR>', { desc = 'Git blame' })
+    set('n', '<leader>gc', ':Git commit<CR>', { desc = '[G]it [C]ommit' })
+    set('n', '<leader>gP', ':Git push<CR>', { desc = '[G]it [P]ush' })
   end,
 }
