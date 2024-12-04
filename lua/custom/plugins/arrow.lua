@@ -9,8 +9,8 @@ return {
     buffer_leader_key = 'm', -- Per Buffer Mappings
     save_key = 'git_root',
   },
-  config = function()
-    require('arrow').setup {}
+  config = function(_, opts)
+    require('arrow').setup(opts)
     vim.keymap.set('n', '<C-p>', require('arrow.persist').previous)
     vim.keymap.set('n', '<C-n>', require('arrow.persist').next)
   end,
