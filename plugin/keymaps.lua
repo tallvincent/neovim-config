@@ -26,7 +26,7 @@ set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Paste buffers
 --  Paste from last yank
-set('n', '<C-p>', '"0p', { desc = 'Paste from last yank' })
+-- set('n', '<C-p>', '"0p', { desc = 'Paste from last yank' })
 
 -- Navigate tabs with Alt + n / p
 -- set('n', '<M-n>', 'gt')
