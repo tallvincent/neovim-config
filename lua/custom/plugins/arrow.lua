@@ -7,21 +7,11 @@ return {
     show_icons = true,
     leader_key = ';', -- Recommended to be a single key
     buffer_leader_key = 'm', -- Per Buffer Mappings
+    save_key = 'git_root',
   },
-  keys = {
-    {
-      '<C-p>',
-      function()
-        require('arrow.persist').previous()
-      end,
-      desc = 'Previous Arrow',
-    },
-    {
-      '<C-n>',
-      function()
-        require('arrow.persist').next()
-      end,
-      desc = 'Next Arrow',
-    },
-  },
+  config = function()
+    require('arrow').setup {}
+    vim.keymap.set('n', '<C-p>', require('arrow.persist').previous)
+    vim.keymap.set('n', '<C-n>', require('arrow.persist').next)
+  end,
 }
