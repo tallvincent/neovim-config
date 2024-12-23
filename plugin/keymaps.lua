@@ -28,9 +28,12 @@ set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 --  Paste from last yank
 -- set('n', '<C-p>', '"0p', { desc = 'Paste from last yank' })
 
--- Navigate tabs with Alt + n / p
--- set('n', '<M-n>', 'gt')
--- set('n', '<M-p>', 'gT')
-
 -- Open a new tab
 set('n', '<leader>tn', ':tabnew<CR>', { desc = 'Open a new tab' })
+
+-- Move selected lines with shift+j or shift+k
+set('v', 'J', ":m '>+1<CR>gv=gv")
+set('v', 'K', ":m '<-2<CR>gv=gv")
+
+set('n', 'H', '^')
+set('n', 'L', '$')
