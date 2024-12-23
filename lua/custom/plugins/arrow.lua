@@ -11,7 +11,7 @@ return {
   },
   config = function(_, opts)
     require('arrow').setup(opts)
-    vim.keymap.set('n', '<C-p>', require('arrow.persist').previous)
-    vim.keymap.set('n', '<C-n>', require('arrow.persist').next)
+    vim.keymap.set('n', '<C-p>', require('arrow.persist').previous, { desc = 'Arrow previous' })
+    vim.keymap.set('n', '<C-n>', require('arrow.persist').next, { desc = 'Arrow next' })
   end,
 }
