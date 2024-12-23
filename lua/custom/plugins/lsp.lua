@@ -158,6 +158,8 @@ return { -- LSP Configuration & Plugins
         filetypes = { 'html', 'heex', 'php' },
       },
 
+      cssls = {},
+
       tailwindcss = {
         init_options = {
           userLanguages = {
