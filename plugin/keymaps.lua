@@ -37,3 +37,7 @@ set('v', 'K', ":m '<-2<CR>gv=gv")
 
 set('n', 'H', '^')
 set('n', 'L', '$')
+
+-- Move between methods
+set('n', '<C-j>', ']m', { desc = 'Next method' })
+set('n', '<C-k>', '[m', { desc = 'Previous method' })
