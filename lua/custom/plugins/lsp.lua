@@ -153,6 +153,10 @@ return { -- LSP Configuration & Plugins
         capabilities = capabilities,
       },
 
+      -- expert = {
+      --   filetypes = { 'elixir', 'eelixir', 'surface' },
+      -- },
+
       html = {
         capabilities = capabilities,
         filetypes = { 'html', 'heex', 'php' },
